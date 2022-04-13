@@ -1,0 +1,15 @@
+```{r, results='asis'}
+if(output_format == "html"){
+  cat("# (PART\\*) Conclusions{-}")
+} else{
+  cat("\\cpart{Conclusions}")
+}
+```
+
+<!-- [TODO: need to fix html as follow, removing extra span] -->
+<!-- <li class="part"><span><b>Conclusions</b></span></li> -->
+
+\pagestyle{myfancy}
+# Final Words
+
+We have finished a nice book.

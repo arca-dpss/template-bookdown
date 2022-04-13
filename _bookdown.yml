@@ -1,0 +1,8 @@
+book_filename: "bookdown-arca-demo"
+repo: "https://github.com/arca-dpss/template-bookdown"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+# output_dir: "docs/"
+

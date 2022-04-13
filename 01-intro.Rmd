@@ -1,0 +1,155 @@
+# Introduction {#intro}
+
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+
+```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center', echo=TRUE}
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+
+```{r nice-tab, tidy=FALSE, echo=TRUE}
+kable(
+  head(iris, 5), caption = 'Here is a nice table!',
+  booktabs = TRUE
+) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                full_width = FALSE)
+```
+
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars, echo=TRUE}
+summary(cars)
+```
+
+### Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Content Hyperlinks
+
+### Sections {#my-section}
+
+See Section \@ref(my-section)
+
+### Figures
+
+#### Pictures
+
+See Figure \@ref(fig:arca-logo). Note: in chunks name do not use "_" but use "-" instead.     `\@ref(fig:arca_logo)` do not work, `\@ref(fig:arca-logo)` works properly.
+
+```{r arca-logo, fig.cap = "Logo ARCA", out.width = '33%'}
+knitr::include_graphics('images/arca-logo.png')
+```
+
+#### Plots
+
+See Figure \@ref(fig:my-plot)
+
+```{r my-plot, fig.cap = "Random numbers", out.width = '50%'}
+plot(rnorm(10))
+```
+
+### Tables
+
+See r-package `kableExtra` documentation ([link](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)). 
+
+
+See Tabele \@ref(tab:cars-table)
+
+```{r cars-table}
+data(iris)
+
+kable(
+  head(iris, 5), caption = 'Here is a nice table!',
+  booktabs = TRUE
+) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                full_width = FALSE)
+```
+
+## APA cls
+
+We are using apa 7 cls format. Citation Syntax ([link](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)).
+
+## Infobox
+
+Icons by [rstudio4edu](https://rstudio4edu.github.io/rstudio4edu-book/) released under [CC BY-NC 2.0 License](https://creativecommons.org/licenses/by-nc/2.0/). Remember to include an *Attributions* section in the book and repository’s README file.
+
+:::{.tip title="My title" data-latex="[My title]"}
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+:::
+
+:::{.warning title="My title" data-latex="[My title]"}
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+:::
+
+:::{.deffun title="My title" data-latex="[My title]"}
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+:::
+
+:::{.design title="My title" data-latex="[My title]"}
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+:::
+
+:::{.trick title="My title" data-latex="[My title]"}
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! 
+:::
+
+

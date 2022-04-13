@@ -1,0 +1,112 @@
+--- 
+title: "A Minimal Book Example with ARCA Template"
+subtitle: "A Handbook for ..."
+author: "ARCA"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+csl: apa.csl
+link-citations: yes
+github-repo: arca-dpss/template-bookdown
+description: "This is a minimal example of using the bookdown package to write a book using the ARCA Template. The output format for this example is bookdown::gitbook."
+cover-image: "assets/images/arca-logo.png"
+header-includes: 
+  - \usepackage{titlepic}
+  - \titlepic{\includegraphics[width=.8\textwidth]{images/arca-logo.pdf}}
+url: 'https\://arca-dpss.github.io/template-bookdown/'
+fontsize: 11pt
+---
+\mainmatter
+\pagestyle{myfancy}
+
+```{r settings, echo=FALSE}
+library(kableExtra)
+library(ggplot2)
+
+# Chunks settings
+knitr::opts_chunk$set(echo = FALSE,
+                      # Plot settings
+                      # dev = "tikz",
+                      dev.args=list(pointsize=12),fig.align='center',
+                      fig.pos = "h", dpi = 300,
+
+                      # Code output width
+                      # tidy=TRUE, tidy.opts = list(width.cutoff = 80),
+                      # comment = NA, prompt = TRUE
+
+                      # Cache options
+                      cache = FALSE, autodep=TRUE)
+
+# Console output width
+options(width = 80)
+
+# Chunk theme
+thm=knitr::knit_theme$get("bclear")
+knitr::knit_theme$set(thm)
+knitr::opts_chunk$set(background = c(.98, .98, 1))
+
+output_format <- ifelse(knitr::is_html_output(), 
+                        yes = "html", no = "latex")
+
+# Option KableExtra
+options(knitr.kable.NA = '')
+options(knitr.table.format = output_format)
+
+
+
+## ggplot settings
+theme_set(theme_classic()+
+            theme(text = element_text(size=12)))
+```
+
+
+# Prerequisites {-}
+
+This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+
+The **bookdown** package can be installed from CRAN or Github:
+
+```{r eval=FALSE, echo=TRUE}
+install.packages("bookdown")
+# or the development version
+# devtools::install_github("rstudio/bookdown")
+```
+
+Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+
+To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+## ARCA Template {-}
+
+ARCA Template is based on [Rstudio Bookdown-demo](https://github.com/rstudio/bookdown-demo) released under [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/) 
+
+Icons by [rstudio4edu](https://rstudio4edu.github.io/rstudio4edu-book/) released under [CC BY-NC 2.0 License](https://creativecommons.org/licenses/by-nc/2.0/).
+
+## Deploy Github Actions {-}
+
+Follow tutorial at https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e but note that github action https://github.com/Cecilapp/GitHub-Pages-deploy is slightly changed so we adapted de code. In particular now we have as last action:
+
+```
+- name: Deploy to GitHub Pages
+       uses: Cecilapp/GitHub-Pages-deploy@v3
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       with:
+         email: ${{ secrets.EMAIL }}
+         build_dir: _site/
+```
+
+Moreover, we also installed `tinytex` and specified `rmarkdown::render_site(encoding = "UTF-8")` in the first job to obtain pdf and epub available versions as well.
+
+
+## HTML and LaTeX {-}
+
+Remember that as the output is compiled to create a website and a PDF you have to take care of defining options and environments in both cases. See official documeentation https://bookdown.org/yihui/bookdown/
