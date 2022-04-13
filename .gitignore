@@ -8,6 +8,7 @@ libs/
 !**/mathjax_header.html
 !assets/*.html
 !docs/libs/
+!docs/*.html
 
 # R and Rstudio specific files
 .Rproj.user
