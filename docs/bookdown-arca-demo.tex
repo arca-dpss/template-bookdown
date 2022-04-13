@@ -1,0 +1,658 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{book}
+\title{A Minimal Book Example with ARCA Template}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A Handbook for \ldots{}}
+\author{ARCA}
+\date{2022-04-13}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={A Minimal Book Example with ARCA Template},
+  pdfauthor={ARCA},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+%----------------------------%
+%----    preamble.tex    ----%
+%----------------------------%
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+%----    layout    ----%
+
+% change margins
+\usepackage[outer = 105pt, inner = 85pt]{geometry}
+\usepackage{afterpage}
+\voffset 5pt
+\headsep 29pt
+\footskip 35pt
+\textheight 590pt
+\usepackage{layout}% http://ctan.org/pkg/layouts
+
+\usepackage[labelfont=bf]{caption}
+
+
+%---- page numbers header and footer
+\usepackage{xcolor}
+
+\definecolor{ctcolorgraylight}{RGB}{153, 153, 153}
+\definecolor{ctcolorgray}{RGB}{120, 120, 120}
+
+\usepackage{fancyhdr}
+\usepackage[fit]{truncate}
+
+% Redefine the plain page style
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[LE,RO]{\textcolor{ctcolorgray}{\thepage}}
+  \renewcommand{\headrulewidth}{0pt}% Line at the header invisible
+}
+
+% fancy style
+\fancypagestyle{myfancy}{%
+  \fancyhf{}
+  \fancyhead[LE]{\footnotesize\textit{\nouppercase{\truncate{0.98\headwidth}{\textcolor{ctcolorgray}{\rightmark}}}}}
+  \fancyhead[RO]{\footnotesize\textit{\truncate{0.98\headwidth}{\textcolor{ctcolorgray}{\leftmark}}}}
+  \fancyfoot[LE,RO]{\textcolor{ctcolorgray}{\thepage}}
+  \renewcommand{\headrulewidth}{1.5pt}
+  \renewcommand{\headrule}{\hbox to\headwidth{%
+      \color{ctcolorgraylight}\leaders\hrule height \headrulewidth\hfill}}
+}
+
+% part page style
+\newcommand{\cpart}[1]{
+\cleardoublepage
+\stepcounter{part}
+\pagestyle{empty}
+\begin{flushright}
+  \vspace*{2.5cm}
+  {\fontfamily{pnc}\fontsize{75}{80}\selectfont%
+   \textcolor{ctcolorgraylight}{\textbf{Part \thepart}}\par}%
+  \vspace*{1cm}
+  {\Huge\textbf{#1}}%
+  \end{flushright}
+\addcontentsline{toc}{part}{Part \thepart\hspace{1em}#1}
+\cleardoublepage
+\pagestyle{plain}
+}
+
+\usepackage{titletoc}
+\titlecontents{part}[0pt]{\bfseries\protect\addvspace{20pt}\titlerule\addvspace{.7ex}}%
+{}{}%% numbered/numberless formatting
+{}%% to be replaced with {} if you don't want any page number for parts
+[\addvspace{0.7ex}\titlerule\addvspace{1.5ex}]
+
+%---- chapter title
+\usepackage[newcentury]{quotchap}
+
+\makeatletter
+\renewcommand*{\chapnumfont}{%
+  \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{120}{150}\selectfont% Default: 100/130
+  \color{chaptergrey}%
+}
+\makeatother
+
+%----    define infoboxes    ----%
+\usepackage[skins, most]{tcolorbox}
+
+% colors
+\definecolor{background}{HTML}{fcfcfc}
+\definecolor{tip-text}{HTML}{e7b002}
+\definecolor{tip-line}{HTML}{fdce38}
+\definecolor{warning-text}{HTML}{b06336}
+\definecolor{warning-line}{HTML}{c97d50}
+\definecolor{deffun-text}{HTML}{0b797e}
+\definecolor{deffun-line}{HTML}{6CC2C9}
+\definecolor{design-text}{HTML}{7c972e}
+\definecolor{design-line}{HTML}{a7c84a}
+\definecolor{trick-text}{HTML}{8c3031}
+\definecolor{trick-line}{HTML}{A3595A}
+
+\newtcolorbox{mybox}[1][black]{
+  colback=background,
+  coltext=black,
+  colframe=#1,
+  boxsep=5pt,
+  arc=4pt,
+  breakable}
+
+% tip
+\newenvironment{tip}[1][Title]
+  {
+  \setlength{\fboxsep}{1em}
+  \begin{mybox}[tip-line]
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/lightbulb.png}} \large \textcolor{tip-text}{Tip-Box: #1\\~\\}\normalsize
+    }
+    {
+  \end{mybox}
+  }
+
+% warnings
+\newenvironment{warning}[1][Title]
+  {
+  \setlength{\fboxsep}{1em}
+  \begin{mybox}[warning-line]
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gotcha.png}} \large \textcolor{warning-text}{Warning-Box: #1\\~\\}\normalsize
+    }
+    {
+  \end{mybox}
+  }
+
+% deffun
+\newenvironment{deffun}[1][Title]
+  {
+  \setlength{\fboxsep}{1em}
+  \begin{mybox}[deffun-line]
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gears.png}} \large \textcolor{deffun-text}{Definition-Box: #1\\~\\}\normalsize
+    }
+    {
+  \end{mybox}
+  }
+
+% design
+\newenvironment{design}[1][Title]
+  {
+  \setlength{\fboxsep}{1em}
+  \begin{mybox}[design-line]
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/design.png}} \large \textcolor{design-text}{Design-Box: #1\\~\\}\normalsize
+    }
+    {
+  \end{mybox}
+  }
+
+% trick
+\newenvironment{trick}[1][Title]
+  {
+  \setlength{\fboxsep}{1em}
+  \begin{mybox}[trick-line]
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/hat.png}} \large \textcolor{trick-text}{Trick-Box: #1\\~\\}\normalsize
+    }
+    {
+  \end{mybox}
+  }
+
+%----
+
+\usepackage{hyperref}
+
+\usepackage{titlepic}
+\titlepic{\includegraphics[width=.8\textwidth]{images/arca-logo.pdf}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\pagestyle{empty}
+\clearpage
+\frontmatter
+\pagestyle{plain}
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\mainmatter
+\pagestyle{myfancy}
+
+\hypertarget{prerequisites}{%
+\chapter*{Prerequisites}\label{prerequisites}}
+\addcontentsline{toc}{chapter}{Prerequisites}
+
+This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+
+The \textbf{bookdown} package can be installed from CRAN or Github:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
+\CommentTok{\# or the development version}
+\CommentTok{\# devtools::install\_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
+
+To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.name/tinytex/}.
+
+\hypertarget{arca-template}{%
+\section*{ARCA Template}\label{arca-template}}
+\addcontentsline{toc}{section}{ARCA Template}
+
+ARCA Template is based on \href{https://github.com/rstudio/bookdown-demo}{Rstudio Bookdown-demo} released under \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0 License}
+
+Icons by \href{https://rstudio4edu.github.io/rstudio4edu-book/}{rstudio4edu} released under \href{https://creativecommons.org/licenses/by-nc/2.0/}{CC BY-NC 2.0 License}.
+
+\hypertarget{deploy-github-actions}{%
+\section*{Deploy Github Actions}\label{deploy-github-actions}}
+\addcontentsline{toc}{section}{Deploy Github Actions}
+
+Follow tutorial at \url{https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e} but note that github action \url{https://github.com/Cecilapp/GitHub-Pages-deploy} is slightly changed so we adapted de code. In particular now we have as last action:
+
+\begin{verbatim}
+- name: Deploy to GitHub Pages
+       uses: Cecilapp/GitHub-Pages-deploy@v3
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       with:
+         email: ${{ secrets.EMAIL }}
+         build_dir: _site/
+\end{verbatim}
+
+Moreover, we also installed \texttt{tinytex} and specified \texttt{rmarkdown::render\_site(encoding\ =\ "UTF-8")} in the first job to obtain pdf and epub available versions as well.
+
+\hypertarget{html-and-latex}{%
+\section*{HTML and LaTeX}\label{html-and-latex}}
+\addcontentsline{toc}{section}{HTML and LaTeX}
+
+Remember that as the output is compiled to create a website and a PDF you have to take care of defining options and environments in both cases. See official documeentation \url{https://bookdown.org/yihui/bookdown/}
+
+\hypertarget{intro}{%
+\chapter{Introduction}\label{intro}}
+
+You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
+
+Figures and tables with captions will be placed in \texttt{figure} and \texttt{table} environments, respectively.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(pressure, }\AttributeTok{type =} \StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[h]
+
+{\centering \includegraphics[width=0.8\linewidth]{bookdown-arca-demo_files/figure-latex/nice-fig-1} 
+
+}
+
+\caption{Here is a nice figure!}\label{fig:nice-fig}
+\end{figure}
+
+Reference a figure by its code chunk label with the \texttt{fig:} prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can reference tables generated from \texttt{knitr::kable()}, e.g., see Table \ref{tab:nice-tab}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kable}\NormalTok{(}
+  \FunctionTok{head}\NormalTok{(iris, }\DecValTok{5}\NormalTok{), }\AttributeTok{caption =} \StringTok{\textquotesingle{}Here is a nice table!\textquotesingle{}}\NormalTok{,}
+  \AttributeTok{booktabs =} \ConstantTok{TRUE}
+\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{bootstrap\_options =} \FunctionTok{c}\NormalTok{(}\StringTok{"striped"}\NormalTok{, }\StringTok{"hover"}\NormalTok{), }
+                \AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:nice-tab}Here is a nice table!}
+\centering
+\begin{tabular}[t]{rrrrl}
+\toprule
+Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
+\midrule
+5.1 & 3.5 & 1.4 & 0.2 & setosa\\
+4.9 & 3.0 & 1.4 & 0.2 & setosa\\
+4.7 & 3.2 & 1.3 & 0.2 & setosa\\
+4.6 & 3.1 & 1.5 & 0.2 & setosa\\
+5.0 & 3.6 & 1.4 & 0.2 & setosa\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+You can write citations, too. For example, we are using the \textbf{bookdown} package (\protect\hyperlink{ref-R-bookdown}{Xie, 2022}) in this sample book, which was built on top of R Markdown and \textbf{knitr} (\protect\hyperlink{ref-xie2015}{Xie, 2015}).
+
+\hypertarget{r-markdown}{%
+\section{R Markdown}\label{r-markdown}}
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see \url{http://rmarkdown.rstudio.com}.
+
+When you click the \textbf{Knit} button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(cars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+\end{verbatim}
+
+\hypertarget{including-plots}{%
+\subsection{Including Plots}\label{including-plots}}
+
+You can also embed plots, for example:
+
+\begin{center}\includegraphics{bookdown-arca-demo_files/figure-latex/pressure-1} \end{center}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+\hypertarget{content-hyperlinks}{%
+\section{Content Hyperlinks}\label{content-hyperlinks}}
+
+\hypertarget{my-section}{%
+\subsection{Sections}\label{my-section}}
+
+See Section \ref{my-section}
+
+\hypertarget{figures}{%
+\subsection{Figures}\label{figures}}
+
+\hypertarget{pictures}{%
+\subsubsection{Pictures}\label{pictures}}
+
+See Figure \ref{fig:arca-logo}. Note: in chunks name do not use ``\_'' but use ``-'' instead. \texttt{\textbackslash{}@ref(fig:arca\_logo)} do not work, \texttt{\textbackslash{}@ref(fig:arca-logo)} works properly.
+
+\begin{figure}[h]
+
+{\centering \includegraphics[width=0.33\linewidth]{images/arca-logo} 
+
+}
+
+\caption{Logo ARCA}\label{fig:arca-logo}
+\end{figure}
+
+\hypertarget{plots}{%
+\subsubsection{Plots}\label{plots}}
+
+See Figure \ref{fig:my-plot}
+
+\begin{figure}[h]
+
+{\centering \includegraphics[width=0.5\linewidth]{bookdown-arca-demo_files/figure-latex/my-plot-1} 
+
+}
+
+\caption{Random numbers}\label{fig:my-plot}
+\end{figure}
+
+\hypertarget{tables}{%
+\subsection{Tables}\label{tables}}
+
+See r-package \texttt{kableExtra} documentation (\href{https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html}{link}).
+
+See Tabele \ref{tab:cars-table}
+
+\begin{table}
+
+\caption{\label{tab:cars-table}Here is a nice table!}
+\centering
+\begin{tabular}[t]{rrrrl}
+\toprule
+Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
+\midrule
+5.1 & 3.5 & 1.4 & 0.2 & setosa\\
+4.9 & 3.0 & 1.4 & 0.2 & setosa\\
+4.7 & 3.2 & 1.3 & 0.2 & setosa\\
+4.6 & 3.1 & 1.5 & 0.2 & setosa\\
+5.0 & 3.6 & 1.4 & 0.2 & setosa\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{apa-cls}{%
+\section{APA cls}\label{apa-cls}}
+
+We are using apa 7 cls format. Citation Syntax (\href{https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html}{link}).
+
+\hypertarget{infobox}{%
+\section{Infobox}\label{infobox}}
+
+Icons by \href{https://rstudio4edu.github.io/rstudio4edu-book/}{rstudio4edu} released under \href{https://creativecommons.org/licenses/by-nc/2.0/}{CC BY-NC 2.0 License}. Remember to include an \emph{Attributions} section in the book and repository's README file.
+
+\begin{tip}[My title]
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{tip}
+
+\begin{warning}[My title]
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{warning}
+
+\begin{deffun}[My title]
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{deffun}
+
+\begin{design}[My title]
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{design}
+
+\begin{trick}[My title]
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{trick}
+
+\hypertarget{literature}{%
+\chapter{Literature}\label{literature}}
+
+Here is a review of existing methods.
+
+\hypertarget{methods}{%
+\chapter{Methods}\label{methods}}
+
+We describe our methods in this chapter.
+
+\hypertarget{applications}{%
+\chapter{Applications}\label{applications}}
+
+Some \emph{significant} applications are demonstrated in this chapter.
+
+\hypertarget{example-one}{%
+\section{Example one}\label{example-one}}
+
+\hypertarget{example-two}{%
+\section{Example two}\label{example-two}}
+
+\cpart{Conclusions}
+
+\pagestyle{myfancy}
+
+\hypertarget{final-words}{%
+\chapter{Final Words}\label{final-words}}
+
+We have finished a nice book.
+
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-xie2015}{}}%
+Xie, Y. (2015). \emph{Dynamic documents with {R} and knitr} (2nd ed.). Chapman; Hall/CRC. \url{http://yihui.name/knitr/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-bookdown}{}}%
+Xie, Y. (2022). \emph{Bookdown: Authoring books and technical documents with r markdown}. \url{https://CRAN.R-project.org/package=bookdown}
+
+\end{CSLReferences}
+
+\end{document}
