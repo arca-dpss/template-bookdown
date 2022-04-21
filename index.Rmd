@@ -81,7 +81,7 @@ To compile this example to PDF, you need XeLaTeX. You are recommended to install
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+), 'assets/bib/packages.bib')
 ```
 
 ## ARCA Template {-}
