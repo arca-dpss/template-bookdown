@@ -14,7 +14,7 @@
 \makeatother
 \subtitle{A Handbook for \ldots{}}
 \author{ARCA}
-\date{2022-04-13}
+\date{2022-04-21}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -167,6 +167,7 @@
 \textheight 590pt
 \usepackage{layout}% http://ctan.org/pkg/layouts
 
+% caption
 \usepackage[labelfont=bf]{caption}
 
 
@@ -259,7 +260,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[tip-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/lightbulb.png}} \large \textcolor{tip-text}{Tip-Box: #1\\~\\}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/lightbulb.png}} \large \textcolor{tip-text}{Tip-Box: #1\\\vspace*{.5em}}\normalsize
     }
     {
   \end{mybox}
@@ -270,7 +271,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[warning-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gotcha.png}} \large \textcolor{warning-text}{Warning-Box: #1\\~\\}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gotcha.png}} \large \textcolor{warning-text}{Warning-Box: #1\\\vspace*{.5em}}\normalsize
     }
     {
   \end{mybox}
@@ -281,7 +282,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[deffun-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gears.png}} \large \textcolor{deffun-text}{Definition-Box: #1\\~\\}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gears.png}} \large \textcolor{deffun-text}{Definition-Box: #1\\\vspace*{.5em}}\normalsize
     }
     {
   \end{mybox}
@@ -292,7 +293,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[design-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/design.png}} \large \textcolor{design-text}{Design-Box: #1\\~\\}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/design.png}} \large \textcolor{design-text}{Design-Box: #1\\\vspace*{.5em}}\normalsize
     }
     {
   \end{mybox}
@@ -303,11 +304,45 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[trick-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/hat.png}} \large \textcolor{trick-text}{Trick-Box: #1\\~\\}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/hat.png}} \large \textcolor{trick-text}{Trick-Box: #1\\\vspace*{.5em}}\normalsize
     }
     {
   \end{mybox}
   }
+
+%----    quote
+
+
+\definecolor{block-gray}{gray}{0.95}
+
+
+\newtcolorbox{line-left}{%
+    colback=white,
+    % grow to right by=-10mm,
+    % grow to left by=-10mm,
+    boxrule=0pt,
+    boxsep=0pt,
+    breakable,
+    enhanced jigsaw,
+    borderline west={2pt}{0pt}{gray},
+    borderline north={0pt}{0pt}{white},
+    borderline south={0pt}{0pt}{white},
+    % title={#2\par},
+    % colbacktitle={block-gray},
+    % coltitle={black},
+    % fonttitle={\large\bfseries},
+    % attach title to upper={},
+    % #1,
+}
+
+% \renewenvironment{quote}
+%                {\begin{line-left}}
+%                {\end{line-left}}
+
+\renewenvironment{quote}
+               {\list{}{\rightmargin\leftmargin}%
+                \item\relax\begin{line-left}\setlength{\parskip}{1em}}
+               {\end{line-left}\endlist}
 
 %----
 
@@ -315,20 +350,6 @@
 
 \usepackage{titlepic}
 \titlepic{\includegraphics[width=.8\textwidth]{images/arca-logo.pdf}}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi

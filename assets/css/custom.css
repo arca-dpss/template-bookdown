@@ -193,3 +193,17 @@ div.trick {
 .footer {
   font-size: .85em;
 }
+
+/*---------- image ------------*/
+
+img {
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+
+/*----    refs    ----*/
+
+.references {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}

@@ -5,8 +5,8 @@ author: "ARCA"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
-csl: apa.csl
+bibliography: ["assets/bib/book.bib", "assets/bib/packages.bib"]
+csl: "assets/bib/apa.csl"
 link-citations: yes
 github-repo: arca-dpss/template-bookdown
 description: "This is a minimal example of using the bookdown package to write a book using the ARCA Template. The output format for this example is bookdown::gitbook."

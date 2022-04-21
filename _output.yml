@@ -1,8 +1,8 @@
 bookdown::gitbook:
-  css: ["assets/style.css", "assets/toc.css", "assets/custom.css"]
+  css: ["assets/css/style.css", "assets/css/toc.css", "assets/css/custom.css"]
   includes:
-    before_body: assets/banner.html
-    after_body: assets/footer.html
+    before_body: "assets/html/banner.html"
+    after_body: "assets/html/footer.html"
   config:
     toc:
       collapse: section
@@ -12,7 +12,7 @@ bookdown::gitbook:
         <li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/arca-dpsss/template-bookdown/edit/master/%s
+    edit: https://github.com/arca-dpss/template-bookdown/edit/master/%s
     download: ["pdf"]
     sharing:
       github: yes
@@ -24,8 +24,8 @@ bookdown::gitbook:
 
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
-    before_body: frontpage.tex
+    in_header: "assets/tex/preamble.tex"
+    before_body: "assets/tex/frontpage.tex"
   latex_engine: xelatex
   # citation_package: biblatex
   # biblio-style: apa

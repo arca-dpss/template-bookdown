@@ -6,7 +6,7 @@ libs/
 
 # ignore all html files except:
 !**/mathjax_header.html
-!assets/*.html
+!assets/html/*.html
 !docs/libs/
 !docs/*.html
 
